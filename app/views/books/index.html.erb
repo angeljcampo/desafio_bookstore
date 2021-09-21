@@ -12,7 +12,9 @@
         <td><%= book.id %> </td>
         <td> <%= book.title %> </td>
         <td> <%= book.author %> </td>
-        <td> <%= link_to "Reserve", reserve_path(book), method: :post, class: "btn btn-light" %> </td>
+        <% if user_signed_in?  %>
+          <td> <%= link_to "Reserve", reserve_path(book), method: :post, class: "btn btn-light" %> </td>
+        <% end %>
       </tr> 
     <% end %>
   </tbody>
